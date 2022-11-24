@@ -1,13 +1,5 @@
 import pygame as pg
-
-PLAYER_JUMP_FORCE = 10
-PLAYER_JUMP_COEFFICIENT = 50
-PLAYER_WIDTH = 50
-PLAYER_HEIGHT = 100
-X_OFFSET = 50
-PLAYER_COLOR = (0, 0, 255)
-GRAVITY = -10
-
+from constants import *
 
 class Player:
 

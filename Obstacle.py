@@ -1,15 +1,7 @@
 import random
 
 import pygame as pg
-
-COLORS = [(0, 255, 0), (255, 0, 0)]
-MIN_WIDTH = 50
-MAX_WIDTH = 100
-MIN_HEIGHT = 50
-MAX_HEIGHT = 100
-MIN_SPEED = 400
-MAX_SPEED = 400
-
+from constants import *
 
 class Obstacle:
 
