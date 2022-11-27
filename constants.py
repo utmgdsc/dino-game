@@ -17,8 +17,6 @@ PLAYER_HEIGHT = 100
 X_OFFSET = 50
 PLAYER_COLOR = (0, 0, 255)
 GRAVITY = -10
-pg.init()
-JUMP_SOUND = pg.mixer.Sound('assets/jump_sound.wav')
 
 # Obstacle constants
 COLORS = [(0, 255, 0), (255, 0, 0)]

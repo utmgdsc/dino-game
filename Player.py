@@ -1,5 +1,6 @@
 import pygame as pg
 from constants import *
+from sound import Sound
 
 
 class Player:
@@ -13,6 +14,7 @@ class Player:
                                  self.height)
         self.jumping = False
         self.velocity = 0
+        self.sound = Sound()
 
     def show(self, surface: pg.Surface):
         pg.draw.rect(surface, PLAYER_COLOR, self.rect)
@@ -21,7 +23,7 @@ class Player:
         if self.jumping:
             return
         self.jumping = True
-        JUMP_SOUND.play()
+        self.sound.play('jump')
         self.velocity = PLAYER_JUMP_FORCE
 
     def update_coords(self, dt):
