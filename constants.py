@@ -4,7 +4,7 @@ import pygame as pg
 SCREEN_WIDTH = 600
 SCREEN_HEIGHT = 600
 SCREENRECT = pg.rect.Rect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
-fps = 30
+fps = 60
 BG_RGB = [255, 255, 255]
 SPAWN_MIN = 1
 SPAWN_MAX = 5
@@ -18,7 +18,7 @@ X_OFFSET = 50
 PLAYER_COLOR = (0, 0, 255)
 GRAVITY = -10
 
-# Obstacle constantss
+# Obstacle constants
 COLORS = [(0, 255, 0), (255, 0, 0)]
 MIN_WIDTH = 50
 MAX_WIDTH = 100
