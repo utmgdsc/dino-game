@@ -26,6 +26,12 @@ def main():
     clock = pg.time.Clock()
     pg.mouse.set_visible(True)
 
+    # Initialize background music
+    pg.mixer.init()
+    pg.mixer.music.load("assets/background_music.mp3")
+    pg.mixer.music.set_volume(0.5)
+    pg.mixer.music.play(-1)
+
     player = Player(screen)
     obstacles = []
     next_spawn = random.randint(SPAWN_MIN, SPAWN_MAX)
