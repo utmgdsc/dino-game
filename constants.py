@@ -4,7 +4,7 @@ import pygame as pg
 SCREEN_WIDTH = 600
 SCREEN_HEIGHT = 600
 SCREENRECT = pg.rect.Rect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
-fps = 60
+fps = 30
 BG_RGB = [255, 255, 255]
 SPAWN_MIN = 1
 SPAWN_MAX = 5
