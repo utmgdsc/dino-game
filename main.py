@@ -27,7 +27,6 @@ def main():
     clock = pg.time.Clock()
     pg.mouse.set_visible(True)
 
-    # Play background music
     sound = Sound()
     sound.play('background')
 
