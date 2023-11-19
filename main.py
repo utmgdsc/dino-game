@@ -28,7 +28,10 @@ def main():
     pg.mouse.set_visible(True)
 
     sound = Sound()
-    sound.play('background')
+    if not sound.no_music:
+        sound.play('background_music')
+    else:
+        print("Warning: A Music file could not be found. The game will run without music.")
 
     player = Player(screen)
     obstacles = []
@@ -57,8 +60,13 @@ def main():
             obstacle.update_coords(dt)
             obstacle.show(screen)
 
-        if player.rect.collidelist(
-                [obstacle.rect for obstacle in obstacles]) != -1:
+        if player.rect.collidelist([obstacle.rect for obstacle in obstacles]) != -1:
+            pg.display.update()
+            if not sound.no_music:
+                sound.stop('background_music')
+                sound.play('game_over')
+
+            pg.time.wait(1200)
             game_over()
 
         pg.display.update()

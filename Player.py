@@ -23,7 +23,8 @@ class Player:
         if self.jumping:
             return
         self.jumping = True
-        self.sound.play('jump')
+        if not self.sound.no_music:
+            self.sound.play('jump')
         self.velocity = PLAYER_JUMP_FORCE
 
     def update_coords(self, dt):
