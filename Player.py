@@ -1,5 +1,7 @@
 import pygame as pg
 from constants import *
+from sound import Sound
+
 
 class Player:
 
@@ -7,24 +9,29 @@ class Player:
         self.width = PLAYER_WIDTH
         self.height = PLAYER_HEIGHT
         self.initial_pos = X_OFFSET, surface.get_height() - self.height
-        self.rect = pg.rect.Rect(X_OFFSET, surface.get_height() - self.height, self.width,
+        self.rect = pg.rect.Rect(X_OFFSET, surface.get_height() - self.height,
+                                 self.width,
                                  self.height)
         self.jumping = False
         self.velocity = 0
+        self.sound = Sound()
 
-    def Show(self, surface: pg.Surface):
+    def show(self, surface: pg.Surface):
         pg.draw.rect(surface, PLAYER_COLOR, self.rect)
 
-    def Jump(self):
+    def jump(self):
         if self.jumping:
             return
         self.jumping = True
+        if not self.sound.no_music:
+            self.sound.play('jump')
         self.velocity = PLAYER_JUMP_FORCE
 
-    def UpdateCoords(self, dt):
+    def update_coords(self, dt):
         if self.jumping:
-            self.rect.move_ip(0,-dt * self.velocity*PLAYER_JUMP_COEFFICIENT)
+            self.rect.move_ip(0, -dt * self.velocity * PLAYER_JUMP_COEFFICIENT)
             self.velocity = self.velocity + dt * GRAVITY
             if self.rect.y > self.initial_pos[1]:
-                self.rect.update(self.initial_pos[0], self.initial_pos[1], PLAYER_WIDTH, PLAYER_HEIGHT)
+                self.rect.update(self.initial_pos[0], self.initial_pos[1],
+                                 PLAYER_WIDTH, PLAYER_HEIGHT)
                 self.jumping = False

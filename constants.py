@@ -18,7 +18,7 @@ X_OFFSET = 50
 PLAYER_COLOR = (0, 0, 255)
 GRAVITY = -10
 
-# Obstacle constantss
+# Obstacle constants
 COLORS = [(0, 255, 0), (255, 0, 0)]
 MIN_WIDTH = 50
 MAX_WIDTH = 100
