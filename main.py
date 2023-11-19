@@ -22,7 +22,7 @@ def main():
     # Initialize pygame
     pg.init()
     screen = pg.display.set_mode((600, 480))
-    pg.display.set_caption("GDCS Dino")
+    pg.display.set_caption("GDSC Dino")
     clock = pg.time.Clock()
     pg.mouse.set_visible(True)
 
