@@ -17,7 +17,7 @@ def game_over(surface: pg.Surface, score: int) -> bool:
     font = pg.font.SysFont("Comic Sans", 32)
     button1 = font.render("Quit", True, (0, 0, 0))
     button2 = font.render("Retry", True, (0, 0, 0))
-    lab1 = font.render("You Lost!", True, (0, 0, 0))
+    lab1 = font.render("You Lost!", True, (255, 0, 0))
     lab2 = font.render("Score: " + str(score), True, (0, 0, 0))
     button1_rect = button1.get_rect()
     button2_rect = button2.get_rect()
@@ -34,10 +34,10 @@ def game_over(surface: pg.Surface, score: int) -> bool:
 
     run = True
     while run:
-        for ev in pygame.event.get():
-            if ev.type == pygame.QUIT:
-                pygame.quit()
-            if ev.type == pygame.MOUSEBUTTONDOWN:
+        for ev in pg.event.get():
+            if ev.type == pg.QUIT:
+                pg.quit()
+            if ev.type == pg.MOUSEBUTTONDOWN:
                 if button1_rect.collidepoint(pg.mouse.get_pos()):
                     return False
                 elif button2_rect.collidepoint(pg.mouse.get_pos()):
