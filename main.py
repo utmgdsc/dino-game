@@ -1,4 +1,5 @@
 import random
+import time
 
 import pygame as pg
 from pygame import KEYDOWN
@@ -25,6 +26,8 @@ def main():
     pg.display.set_caption("GDSC Dino")
     clock = pg.time.Clock()
     pg.mouse.set_visible(True)
+    start = int(time.time_ns())
+    font = pg.font.SysFont("Comic Sans", 16)
 
     player = Player(screen)
     obstacles = []
@@ -45,6 +48,9 @@ def main():
             obstacles.append(Obstacle(screen))
             next_spawn = random.randint(SPAWN_MIN, SPAWN_MAX)
         screen.fill(BG_RGB)
+        score = (int(time.time_ns()) - start) // 50000000
+        text = font.render(str(score), True, (0, 0, 0))
+        screen.blit(text, (500, 25))
         player.show(screen)
         player.update_coords(dt)
         for obstacle in obstacles:
