@@ -19,7 +19,6 @@ class Player:
         self.sound = Sound()
 
     def show(self, surface: pg.Surface):
-        # pg.draw.rect(surface, PLAYER_COLOR, self.rect)
         surface.blit(self.img, self.rect)
 
     def jump(self):

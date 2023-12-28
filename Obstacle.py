@@ -26,8 +26,6 @@ class Obstacle:
             self.height = GRASS_HEIGHT
             self.img = pg.image.load('assets/grass.png').convert_alpha()
 
-        # self.width = random.randint(MIN_WIDTH, MAX_WIDTH)
-        # self.height = random.randint(MIN_HEIGHT, MAX_HEIGHT)
         self.rect = pg.rect.Rect(surface.get_width(), surface.get_height() -
                                  self.height, self.width,
                                  self.height)
@@ -37,7 +35,6 @@ class Obstacle:
         self.speed = random.randint(MIN_SPEED, MAX_SPEED)
 
     def show(self, surface: pg.Surface):
-        # pg.draw.rect(surface, self.color, self.rect)
         surface.blit(self.img, self.rect)
 
     def update_coords(self, dt):
