@@ -12,12 +12,14 @@ class Player:
         self.rect = pg.rect.Rect(X_OFFSET, surface.get_height() - self.height,
                                  self.width,
                                  self.height)
+        self.img = pg.image.load('assets/dino.png').convert_alpha()
+
         self.jumping = False
         self.velocity = 0
         self.sound = Sound()
 
     def show(self, surface: pg.Surface):
-        pg.draw.rect(surface, PLAYER_COLOR, self.rect)
+        surface.blit(self.img, self.rect)
 
     def jump(self):
         if self.jumping:
