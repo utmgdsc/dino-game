@@ -32,6 +32,7 @@ def main():
     player = Player(screen)
     obstacles = []
     next_spawn = random.randint(SPAWN_MIN, SPAWN_MAX)
+    time_to_unduck = None
     global game_active
     while game_active:
         dt = clock.tick(fps) / 1000.0
@@ -43,6 +44,16 @@ def main():
             if event.type == KEYDOWN:
                 if event.key == constants.K_SPACE:
                     player.jump()
+                elif event.key == constants.K_DOWN:
+                    player.duck()
+                    time_to_unduck = DUCK_TIME
+
+        if time_to_unduck:
+            time_to_unduck -= dt
+            if time_to_unduck <= 0:
+                player.unduck()
+                time_to_unduck = None
+
         next_spawn -= dt
         if next_spawn <= 0:
             obstacles.append(Obstacle(screen))
