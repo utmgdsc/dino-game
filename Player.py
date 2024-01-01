@@ -1,5 +1,4 @@
 import pygame as pg
-import pygame.time
 
 from constants import *
 from sound import Sound
