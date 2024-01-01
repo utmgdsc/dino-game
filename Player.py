@@ -46,6 +46,8 @@ class Player:
 
     def update_coords(self, dt):
         if self.jumping:
+            if self.ducking:
+                self.unduck()
             self.rect.move_ip(0, -dt * self.velocity * PLAYER_JUMP_COEFFICIENT)
             self.velocity = self.velocity + dt * GRAVITY
             if self.rect.y > self.initial_pos[1]:
@@ -54,6 +56,6 @@ class Player:
                 self.jumping = False
 
         if self.ducking:
-            self.rect.update(self.initial_pos[0], self.initial_pos[1] + self.height - DUCK_HEIGHT,
-                                     DUCK_WIDTH, DUCK_HEIGHT)
+            self.rect.update(self.initial_pos[0], self.initial_pos[1] +
+                             self.height - DUCK_HEIGHT, DUCK_WIDTH, DUCK_HEIGHT)
             self.img = pg.image.load('assets/dino_duck.png').convert_alpha()
